@@ -1,0 +1,38 @@
+group 'com.pclavel'
+version '1.0-SNAPSHOT'
+
+project.ext {
+  kotlinVersion = "1.0.2"
+  sparkVersion = "2.5"
+  freemarkerVersion = "2.3.14"
+  sl4jSimpleVersion = "1.7.21"
+  mongoDbDriverVersion = "3.2.2"
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1"
+  }
+}
+
+repositories {
+  mavenCentral()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+}
+
+apply plugin: 'idea'
+apply plugin: 'kotlin'
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+  compile "com.sparkjava:spark-core:$sparkVersion"
+  compile "org.slf4j:slf4j-simple:$sl4jSimpleVersion"
+  compile "org.freemarker:freemarker:$freemarkerVersion"
+  compile "org.mongodb:mongodb-driver:$mongoDbDriverVersion"
+
+}
